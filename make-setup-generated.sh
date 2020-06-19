@@ -1,17 +1,34 @@
 #! /bin/sh
+#
+# Generate version and metadata preamble for the document
+#
 
+# By default we base the version on the directory metadata
 VERSION=1.1
 DATESTR=${DATESTR:-`cat REVISION-DATE 2>/dev/null`}
-if [ x"$DATESTR" = x ]; then
-    ISODATE=`git show --format=format:'%cd' --date=iso | head -n 1`
-    DATESTR=`date -d "$DATE" +'%d %B %Y'`
+
+
+# If a second argument is passed we extract what we can from git
+# metadata (closest lightweight tag) and local tree status. This
+# allows locally generated copies to be tagged appropriately.
+#
+# The formal build process skips this.
+if ! test -z "$2"; then
+    TAG=$(git describe --dirty --tags)
+    # base date on now
+    DATESTR=$(date +'%d %B %Y')
+    COMMIT=$(git rev-parse --short HEAD)
+
+    # Finally check if we have un-committed changes in the tree
+    if ! git diff-index --quiet HEAD -- ; then
+        COMMIT="$COMMIT with local changes"
+    fi
 fi
 
 case "$1" in
     *-wd*)
 	STAGE=wd
 	STAGENAME="Working Draft"
-	WORKINGDRAFT=`basename "$1" | sed 's/.*-wd//'`
 	;;
     *-os*)
 	STAGE=os
@@ -39,6 +56,15 @@ case "$1" in
 	echo Unknown doc type >&2
 	exit 1
 esac
+
+#
+# Finally if we are building a local draft copy append the commit
+# details to the end of the working draft
+#
+if ! test -z "$COMMIT" ; then
+    STAGEEXTRATITLE="$STAGEEXTRATITLE (@ git $COMMIT)"
+fi
+
 
 #Prepend OASIS unless already there
 case "$STAGENAME" in
