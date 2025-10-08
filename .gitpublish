@@ -1,3 +1,3 @@
 [gitpublishprofile "default"]
-base = master
+base = origin/master
 to = virtio-comment@lists.linux.dev
