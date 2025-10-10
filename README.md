@@ -23,9 +23,10 @@ Please see the [LICENSE](https://github.com/oasis-tcs/virtio-spec/blob/master/LI
 #### Building Instructions
 
 Authoritative version of the specification is maintained in the TeX document format. PDF and HTML versions are made available for ease of use and review. In order to build the HTML and PDF versions of the spec you will need the TeX document production system. The easiest way to get it up and running is probably by installing [Tex-Live](https://www.tug.org/texlive/).
+
 Installation cheat sheet:
 
-**Fedora:**
+***Fedora:***
 ```bash
 sudo dnf install texlive-scheme-full
 ```
