@@ -22,30 +22,35 @@ Please see the [LICENSE](https://github.com/oasis-tcs/virtio-spec/blob/master/LI
 
 #### Building Instructions
 
-Authoritative version of the specification is maintained in the TeX document format. PDF and HTML versions are made available for ease of use and review. In order to build the HTML and PDF versions of the spec you will need the TeX document production system. The easiest way to get it up and running is probably by installing [Tex-Live](https://www.tug.org/texlive/).
+Authoritative version of the specification is maintained in the TeX document format. PDF and HTML versions are made available for ease of use and review. In order to build the HTML and PDF versions of the spec you will need the TeX document production system. The easiest way to get it up and running is probably by installing [Tex-Live](https://www.tug.org/texlive/).\
 Installation cheat sheet:
 
-**Fedora:**
+***Fedora:***
 ```bash
 sudo dnf install texlive-scheme-full
 ```
-**Ubuntu and other Debian derivatives:**
+***Ubuntu and other Debian derivatives:***
 ```bash
 sudo apt-get install texlive-full
 ```
-**OSX:**
+***OSX:***
 
   OSX users don't need to install Tex-Live because they already have [MacTeX](http://www.tug.org/mactex/) installed.
 
 The build process generates a ZIP package file including the original TeX sources, as well as HTML and PDF formatted versions of the specification.
 
-**To generate the ZIP package, run:**
+***To generate the ZIP package, run:***
 ```bash
 ./makeall.sh
 ```
-**Troubleshooting notes:**
+***Troubleshooting notes:***
   
-  PDFs of the specification can be generated with either MicroSoft's Core fonts for the Web: **Arial** and **Courier New**, or **Liberation fonts**: **Liberation Sans** and **Liberation Mono**. Most systems come with one of these two variants included: should you get an error message about missing fonts, you will need to downloads and install one of the above font packages.
+   > PDFs of the specification can be generated with either MicroSoft's
+   > Core fonts for the Web: **Arial** and **Courier New**, or
+   > **Liberation fonts**: **Liberation Sans** and **Liberation Mono**.
+   > Most systems come with one of these two variants included: should
+   > you get an error message about missing fonts, you will need to
+   > downloads and install one of the above font packages.
 
 #### Providing Feedback
 
