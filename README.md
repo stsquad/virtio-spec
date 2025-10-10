@@ -22,30 +22,32 @@ Please see the [LICENSE](https://github.com/oasis-tcs/virtio-spec/blob/master/LI
 
 #### Building Instructions
 
-Authoritative version of the specification is maintained in the TeX document format. PDF and HTML versions are made available for ease of use and review. In order to build the HTML and PDF versions of the spec you will need the TeX document production system. The easiest way to get it up and running is probably by installing [Tex-Live](https://www.tug.org/texlive/).
+Authoritative version of the specification is maintained in the TeX document format. PDF and HTML versions are made available for ease of use and review. In order to build the HTML and PDF versions of the spec you will need the TeX document production system. The easiest way to get it up and running is probably by installing [Tex-Live](https://www.tug.org/texlive/).\
 Installation cheat sheet:
 
-**Fedora:**
+***Fedora:***
 ```bash
 sudo dnf install texlive-scheme-full
 ```
-**Ubuntu and other Debian derivatives:**
+***Ubuntu and other Debian derivatives:***
 ```bash
 sudo apt-get install texlive-full
 ```
-**OSX:**
+***OSX:***
 
-  OSX users don't need to install Tex-Live because they already have [MacTeX](http://www.tug.org/mactex/) installed.
+OSX users don't need to install Tex-Live because they already have [MacTeX](http://www.tug.org/mactex/) installed.
 
 The build process generates a ZIP package file including the original TeX sources, as well as HTML and PDF formatted versions of the specification.
 
-**To generate the ZIP package, run:**
+***To generate the ZIP package, run:***
 ```bash
 ./makeall.sh
 ```
-**Troubleshooting notes:**
+***Troubleshooting notes:***
   
-  PDFs of the specification can be generated with either MicroSoft's Core fonts for the Web: **Arial** and **Courier New**, or **Liberation fonts**: **Liberation Sans** and **Liberation Mono**. Most systems come with one of these two variants included: should you get an error message about missing fonts, you will need to downloads and install one of the above font packages.
+PDFs of the specification can be generated with either MicroSoft's Core fonts for the Web: Arial and Courier New, or
+Liberation fonts: Liberation Sans and Liberation Mono. Most systems come with one of these two variants included: should
+you get an error message about missing fonts, you will need to downloads and install one of the above font packages.
 
 #### Providing Feedback
 
@@ -55,20 +57,23 @@ The preferred form of providing feedback is in form of a **patch**. A patch can 
 
 ```bash
 git clone [https://github.com/oasis-tcs/virtio-spec.git](https://github.com/oasis-tcs/virtio-spec.git)
-... edit spec text, and save ...
-
+# edit spec text, and save ...
 git commit -a
-... describe the proposed change, in the following format:
-single line summary
+```
 
-detailed description, including motivation for the change
+Describe the proposed change, in the following format:
 
-Signed-off-by: Name <email>
-... then save and close the editor ...
+  > single line summary
+  > 
+  > detailed description, including motivation for the change
+  >
+  > Signed-off-by: Name <email>
 
+then save and close the editor
+
+```bash
 git format-patch -o proposal1/ HEAD~1..
-... generates a new directory proposal1/ and a file starting with 0001- ...
-
+# generates a new directory proposal1/ and a file starting with 0001- ...
 git send-email --to=virtio-comment@lists.linux.dev proposal1/0001-*
 ```
 
@@ -82,25 +87,24 @@ git publish
 git publish # will send a v2
 ```
 
-*When to use the virtio-comment mailing list:*
+***When to use the virtio-comment mailing list:***
 
-  questions and change proposals for the Virtio specification, including the specification of basic functionality, transports and devices.
+questions and change proposals for the Virtio specification, including the specification of basic functionality, transports and devices.
 
-*When *not* to use the virtio-comment mailing list:*
+***When not to use the virtio-comment mailing list:***
 
-  questions and change proposals for Virtio drivers and devices implementing the specification. (please use the [virtio-dev mailing list](mailto:virtio-dev@lists.linux.dev) for this).
+questions and change proposals for Virtio drivers and devices implementing the specification. (please use the [virtio-dev mailing list](mailto:virtio-dev@lists.linux.dev) for this).
 
-*To do:*
+***To do:***
 - send email preferably in text format (best for archiving).
 
-*Not to do:*
+***Not to do:***
 - copy both virtio-dev and virtio-comment mailing lists (instead, pick one);
 - send full copies of the virtio spec (in any format).
 
 #### Note for TC Members
 
 TC Members should review TC specific process rules under "Further Description of this Repository" in [https://github.com/oasis-tcs/virtio-admin](https://github.com/oasis-tcs/virtio-admin)
-
 
 #### Implementation discussion
 
@@ -109,24 +113,23 @@ Implementation discussion takes place on the **virtio-dev** mailing list, and is
 
 Note that only the plain text part of the message is archived, and all attachments are stripped. Accordingly, messages sent to the mailing list should use text/plain encoding and not have any attachments.
 
-*When to use the virtio-dev mailing list:*
+***When to use the virtio-dev mailing list:***\
 
-  questions and change proposals for Virtio drivers and devices implementing the specification.
+questions and change proposals for Virtio drivers and devices implementing the specification.
 
-*When *not* to use the virtio-dev mailing list:*
+***When not to use the virtio-dev mailing list:***\
 
-  questions and change proposals for the Virtio specification, including the specification of basic functionality, transports and devices (please use the [virtio-comment mailing list](mailto:virtio-comment@lists.linux.dev) for this).
+questions and change proposals for the Virtio specification, including the specification of basic functionality, transports and devices (please use the [virtio-comment mailing list](mailto:virtio-comment@lists.linux.dev) for this).
 
-*To do:*
+***To do:***
 - send email preferably in text format (best for archiving).
 
-*Not to do:*
+***Not to do:***
 - copy both virtio-dev and virtio-comment mailing lists (instead, pick one).
 
 #### Use of github issues
 
-Note: according to the virtio TC rules, all official TC communication is taking place on one of the TC mailing lists. In particular, all comments must be provided on one of the TC mailing lists. Accordingly, the TC will not respond to comments provided in github issues: github issues are used solely to track integration of comments into the specification.
-
+Note: according to the virtio TC rules, all official TC communication is taking place on one of the TC mailing lists. In particular, all comments must be provided on one of the TC mailing lists. Accordingly, the TC will not respond to comments provided in github issues: github issues are used solely to track integration of comments into the specification.\
 To request a TC vote on resolving a specific comment:
 
 1. Create a github issue, or edit an existing issue, with a short summary of the comment.
